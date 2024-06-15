@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell, TableFooter } from "@/components/ui/table"
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
 import { BellIcon, CheckIcon, CreditCardIcon, PrinterIcon, SettingsIcon, TrashIcon, XIcon } from "lucide-react"
-import NavBar from "../(main)/(routes)/_components/navbar"
+import NavBarPos from "../(main)/(routes)/_components/navbarPos"
 
 export default function Component() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -34,8 +34,8 @@ export default function Component() {
   const total = selectedProducts.reduce((acc:any, product:any) => acc + product.price, 0)
   return (
     <div className="flex flex-col h-screen">
-      <NavBar />
-      <main className="flex-1 grid grid-cols-1 md:grid-cols-[1fr_300px] gap-6 p-6">
+      <NavBarPos />
+      <main className="flex-1 grid grid-cols-1 md:grid-cols-[1fr_440px] gap-6 p-6">
         <div className="bg-white rounded-lg shadow-md p-6">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-2xl font-bold">Current Order</h2>
@@ -64,15 +64,30 @@ export default function Component() {
               <Button
                 key={product.id}
                 variant="outline"
-                className="flex items-center justify-between"
+                className="flex items-center justify-between h-32 "
                 onClick={() => handleProductSelect(product)}
               >
                 <span>{product.name}</span>
                 <span>${product.price.toFixed(2)}</span>
+                {/* <Image
+                  src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1599&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="Product Image"
+                  width={180}
+                  height={120}
+                  className="w-full object-fill"
+                /> */}
+                <div>
+                <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg" alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch." class="h-full w-[120px] h-full object-cover object-center"></img>
+
+                </div>
               </Button>
             ))}
           </div>
-          <Table>
+       
+        </div>
+        {/* Fils test */}
+        <div>
+        <Table>
             <TableHeader>
               <TableRow>
                 <TableHead>Item</TableHead>
@@ -114,48 +129,7 @@ export default function Component() {
             </TableFooter>
           </Table>
         </div>
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-2xl font-bold mb-4">Customer Info</h2>
-          <div className="grid grid-cols-1 gap-4">
-            <div>
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" placeholder="John Doe" />
-            </div>
-            <div>
-              <Label htmlFor="phone">Phone</Label>
-              <Input id="phone" placeholder="(123) 456-7890" />
-            </div>
-            <div>
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" placeholder="john@example.com" />
-            </div>
-            <div>
-              <Label htmlFor="table">Table</Label>
-              <Select >
-                <SelectTrigger>
-                  <SelectValue placeholder="Select table" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="1">Table 1</SelectItem>
-                  <SelectItem value="2">Table 2</SelectItem>
-                  <SelectItem value="3">Table 3</SelectItem>
-                  <SelectItem value="4">Table 4</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-          <div className="mt-6 flex justify-end gap-4">
-            <Button variant="outline">
-              <TrashIcon className="w-5 h-5 mr-2" />
-              Cancel Order
-            </Button>
-            <Button variant="outline">
-              <CreditCardIcon className="w-5 h-5 mr-2" />
-              Process Payment
-            </Button>
-          </div>
-        </div>
-      </main>
+       </main>
     </div>
   )
 }
