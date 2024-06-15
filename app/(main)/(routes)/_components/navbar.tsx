@@ -14,9 +14,7 @@ const NavBar = () => {
         <span className="text-lg font-bold">Acme POS</span>
       </Link>
       <nav className="hidden md:flex items-center gap-4">
-        <Link href="/menu" className="hover:underline">
-          Menu
-        </Link>
+
        
         <Link href="/pos" className="hover:underline">
           POS
