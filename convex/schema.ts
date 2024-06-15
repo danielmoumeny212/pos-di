@@ -45,6 +45,7 @@ export default defineSchema({
     name: v.string(),
     description: v.string(),
     price: v.number(),
+    
     customizableOption: v.string(),
   }),
 
