@@ -12,7 +12,7 @@ export default function ProductPageComponent() {
       <div className="flex items-center justify-between border-b pb-4">
         <div className="flex items-center space-x-4">
           <Avatar className="w-12 h-12">
-            <img src="/placeholder.svg" alt="Ola Click" />
+            {/* <img src="/placeholder.svg" alt="Ola Click" /> */}
           </Avatar>
           <div>
             <h1 className="text-xl font-bold">Daniel Restaurant</h1>
