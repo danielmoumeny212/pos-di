@@ -66,4 +66,16 @@
     .heading{
       line-height: 1.5rem;
     }
+
+    footer p{
+      @apply font-roboto;
+    }
+
+    footer .link-container{
+      @apply min-w-[165px] px-2;
+    }
+
+    footer .col-heading{
+      @apply text-2xl mb-6 font-semibold;
+    }
   }

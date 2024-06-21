@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { CheckIcon, ContactIcon, GanttChartIcon, InfoIcon, MenuIcon, ReceiptIcon, ShoppingCartIcon, XIcon } from "lucide-react"
 import Image from "next/image"
 import Hero from "@/components/HomePage/Hero"
+import Footer from "@/components/Partial/Footer"
 
 export default function MarketingPage() {
   return (
@@ -13,6 +14,7 @@ export default function MarketingPage() {
           {/* <MenuIcon className="h-6 w-6" /> */}
           <Image
             src="/logo.png"
+            alt="pizza image"
             width={100}
             height={20}
           />
@@ -230,15 +232,7 @@ export default function MarketingPage() {
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 border-t" id="contact">
-          <div className="container px-4 md:px-6">
-            <div className="grid gap-10 sm:px-10 md:gap-16 md:grid-cols-2">
-              <div className="space-y-4">
-                <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800">Contact Us</div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Footer/>
       </main>
     </div>
   )
