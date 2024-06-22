@@ -9,7 +9,7 @@ const Hero = () => {
         <div className='flex flex-col justify-between h-[360px] lg:h-[600px] sm:px-4 lg:px-1 py-2 lg:py-12'>
           <h1 className='leading-[60px] sm:leading-[86px] lg:leading-[92px] font-montserrat text-5xl sm:text-6xl lg:text-6xl font-bold'>La <span className='text-primary'>magie</span> de déguster chez soi</h1>
           <div className='flex flex-col justify-between h-28 md:h-[104px]'>
-            <p className='opacity-50 text-base'>Commandez et faites vous livrer en un click par les restaurants à proximité de chez vous</p>
+            <p className='text-muted-foreground text-base'>Commandez et faites vous livrer en un click par les restaurants à proximité de chez vous</p>
             <div>
             <Link
               href="#"

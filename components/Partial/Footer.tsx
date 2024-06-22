@@ -11,7 +11,7 @@ const FooterLink = ({href, children}: {href:string, children:React.ReactNode}) =
 
 const Footer = () => {
   return (
-    <footer className='w-full px-4 md:px-8 pt-16'>
+    <footer className='w-full bg-gray-100 border-t-2 px-4 md:px-8 pt-16'>
         {/* <div className='grid grid-cols-4 gap-4 mb-20'> */}
         <div className='flex flex-wrap justify-between gap-x-6 gap-y-11 mb-20 px-12'>
             <div className=''>
@@ -47,7 +47,7 @@ const Footer = () => {
             {/* </div> */}
         </div>
         <hr/>
-        <div className='flex justify-between items-center px-4 my-4'>
+        <div className='flex justify-between items-center px-4 py-4'>
             <p className='text-lg opacity-60'>All rights reserved</p>
             <div className='flex justify-between items-center w-28'>
                 <Facebook className='opacity-60'/>
