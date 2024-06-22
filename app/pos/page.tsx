@@ -1,7 +1,5 @@
-
 "use client"
-
-import { useState } from "react"
+import React, { useState } from 'react';
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
@@ -11,28 +9,55 @@ import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell, TableFoo
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
 import { BellIcon, CheckIcon, CreditCardIcon, PrinterIcon, SettingsIcon, TrashIcon, XIcon } from "lucide-react"
 import NavBarPos from "../(main)/(routes)/_components/navbarPos"
+const initialProducts = [
+  { id: 1, name: "Cheeseburger", price: 2000, qty: 1 },
+  { id: 2, name: "Fries", price: 2000 , qty:  1 },
+  { id: 3, name: "Soda", price: 1500, qty: 1 },
+  {  id: 4, name: "Salad", price: 1000 , qty: 1 },
+  { id: 5, name: "Chicken Sandwich", price: 3000, qty: 1 },
 
-export default function Component() {
+];
+
+export default function Boutique() {
+  const [products, setProducts] = useState(initialProducts);
+  const [cart, setCart] = useState([]);
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedProducts, setSelectedProducts] = useState<any>([])
-  const products = [
-    { id: 1, name: "Cheeseburger", price: 12.99 },
-    { id: 2, name: "Fries", price: 4.99 },
-    { id: 3, name: "Soda", price: 2.99 },
-    { id: 4, name: "Salad", price: 8.99 },
-    { id: 5, name: "Chicken Sandwich", price: 10.99 },
-  ]
+  const addToCart = (productToAdd:any) => {
+    
+    setCart((currentCart:any) => {
+      const productInCart = currentCart.find((product:any) => product.id === productToAdd.id);
+      if (productInCart) {
+        return currentCart.map((product:any) =>
+          product.id === productToAdd.id
+            ? { ...product, quantity: product.quantity + 1 }
+            : product
+        );
+      }
+      return [...currentCart, { ...productToAdd, quantity: 1 }];
+    });
+  };
+
+  const removeFromCart = (productId:any) => {
+    setCart((currentCart : any) => {
+      const productInCart = currentCart.find((product:any) => product.id === productId);
+      if (productInCart.quantity > 1) {
+        return currentCart.map((product:any) =>
+          product.id === productId
+            ? { ...product, quantity: product.quantity - 1 }
+            : product
+        );
+      }
+      return currentCart.filter((product:any) => product.id !== productId);
+    });
+  };
+
+  const getTotalPrice = () => {
+    return cart.reduce((total, product:any) => total + product.price * product.quantity, 0);
+  };
   const filteredProducts = products.filter((product) => product.name.toLowerCase().includes(searchTerm.toLowerCase()))
-  const handleProductSelect = (product: any) => {
-    if (!selectedProducts.some((p:any) => p.id === product.id)) {
-      setSelectedProducts([...selectedProducts, product])
-    }
-  }
-  const handleRemoveProduct = (product:any) => {
-    setSelectedProducts(selectedProducts.filter((p:any) => p.id !== product.id))
-  }
-  const total = selectedProducts.reduce((acc:any, product:any) => acc + product.price, 0)
   return (
+    <>
     <div className="flex flex-col h-screen">
       <NavBarPos />
       <main className="flex-1 grid grid-cols-1 md:grid-cols-[1fr_440px] gap-6 p-6">
@@ -60,32 +85,29 @@ export default function Component() {
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {filteredProducts.map((product) => (
-              <Button
-                key={product.id}
-                variant="outline"
-                className="flex items-center justify-between h-32 "
-                onClick={() => handleProductSelect(product)}
-              >
-                <span>{product.name}</span>
-                <span>${product.price.toFixed(2)}</span>
-                {/* <Image
-                  src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1599&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Product Image"
-                  width={180}
-                  height={120}
-                  className="w-full object-fill"
-                /> */}
-                <div>
-                <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg" alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch." class="h-full w-[120px] h-full object-cover object-center"></img>
+                {filteredProducts.map((product) => (
+          
+            
+            <button
+            key={product.id}
+           
+            className="flex items-center justify-between h-32 "
+               
+            onClick={() => addToCart(product)}>
+              
+              <span>{product.name}:</span>
+              <span> {product.price} Fcfa</span>
+              <div>
+                {/* <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg" alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch." class="h-full w-[120px] h-full object-cover object-center"></img> */}
 
                 </div>
-              </Button>
-            ))}
+            </button>
+          
+        ))}
           </div>
        
         </div>
-        {/* Fils test */}
+     
         <div>
         <Table>
             <TableHeader>
@@ -98,21 +120,32 @@ export default function Component() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {selectedProducts.map((product:any) => (
+              {cart.map((product:any) => (
                 <TableRow key={product.id}>
                   <TableCell>{product.name}</TableCell>
-                  <TableCell>1</TableCell>
-                  <TableCell>${product.price.toFixed(2)}</TableCell>
-                  <TableCell>${product.price.toFixed(2)}</TableCell>
+                  
+                  <TableCell>{product.quantity}</TableCell>
+                  <TableCell>{product.price} x {product.quantity}</TableCell>
                   <TableCell>
                     <Button
                       variant="ghost"
                       size="icon"
                       className="rounded-full"
-                      onClick={() => handleRemoveProduct(product)}
+                      onClick={() => removeFromCart(product.id)}
                     >
                       <XIcon className="w-5 h-5" />
+                      
                       <span className="sr-only">Remove</span>
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="rounded-full"
+                      onClick={() => addToCart(product)}
+                    >
+                      <XIcon className="w-5 h-5" />
+                      
+                      <span className="sr-only">Add</span>
                     </Button>
                   </TableCell>
                 </TableRow>
@@ -123,13 +156,16 @@ export default function Component() {
                 <TableCell colSpan={3} className="text-right font-bold">
                   Total:
                 </TableCell>
-                <TableCell className="font-bold">${total.toFixed(2)}</TableCell>
+                <TableCell className="font-bold">{getTotalPrice()} Fcfa</TableCell>
                 <TableCell />
               </TableRow>
             </TableFooter>
           </Table>
         </div>
        </main>
+    
     </div>
-  )
+    
+    </>
+  );
 }
