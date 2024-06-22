@@ -1,16 +1,13 @@
 import Link from "next/link"
 import Image from "next/image"
 
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
-
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { CheckIcon, ContactIcon, GanttChartIcon, InfoIcon, MenuIcon, ReceiptIcon, ShoppingCartIcon, XIcon } from "lucide-react"
 import Hero from "@/components/HomePage/Hero"
 import Footer from "@/components/Partial/Footer"
 import Collaboration from "@/components/HomePage/Collaboration"
 import MealsTypes from "@/components/HomePage/MealsTypes"
+import RestaurantFeaturesList from "@/components/HomePage/RestaurantFeaturesList";
+import Faq from "@/components/HomePage/Faq";
 
 export default function MarketingPage() {
   return (
@@ -40,8 +37,11 @@ export default function MarketingPage() {
       </header>
       <main className="flex-1">
         <Hero/>
-        <MealsTypes/>               
+        <MealsTypes/>
+        <RestaurantFeaturesList/>
+        {/* Des outils en un pour gérer votre restaurant                */}
         <Collaboration/>
+        <Faq/>
         <Footer/>
       </main>
     </div>
