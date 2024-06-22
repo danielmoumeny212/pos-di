@@ -1,20 +1,20 @@
+"use client"
 import { PropsWithChildren } from "react";
-import NavBar from "./_components/navbar";
 import Navigation from "./_components/navigation";
 import Footer from "./_components/footer";
+import React, { useState } from 'react';
 
 const MainLayout = ({ children }: PropsWithChildren) => {
-  return (
-    <div className="flex flex-col min-h-screen">
-
-        <NavBar />
-       <main className="flex-1 grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6 p-6">
-         <Navigation />
-        {children}
-      </main>
-        {/* <Footer /> */}
-    </div>
-  );
+    const [displayNavbar, setDisplayNavbar] = useState(true);
+    
+    return (
+        <div className="flex h-screen overflow-hidden">
+            <Navigation displayNavbar={displayNavbar} setDisplayNavbar={setDisplayNavbar} />
+            <main className="flex-1 overflow-y-auto p-4">
+                {children}
+            </main>
+        </div>
+    );
 };
 
 export default MainLayout;

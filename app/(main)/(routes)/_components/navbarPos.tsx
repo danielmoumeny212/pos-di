@@ -1,25 +1,19 @@
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
-import { BellIcon,  Package2Icon } from 'lucide-react'
+import { BellIcon,  ChevronLeftIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const NavBar = () => {
+const NavBarPos = () => {
   return (
     <header className="bg-gray-900 text-white py-4 px-6 flex items-center justify-between">
     <div className="flex items-center gap-4">
-      <Link href="#" className="flex items-center gap-2">
-        <Package2Icon className="h-6 w-6" />
+      <Link href="/dashboard" className="flex items-center gap-2">
+        <ChevronLeftIcon className="h-6 w-6" />
         <span className="text-lg font-bold">Acme POS</span>
       </Link>
-      <nav className="hidden md:flex items-center gap-4">
-
-       
-        <Link href="/pos" className="hover:underline">
-          POS
-        </Link>
-      </nav>
+      
     </div>
     <div className="flex items-center gap-4">
     <Button variant="ghost" size="icon" className="rounded-full">
@@ -47,4 +41,4 @@ const NavBar = () => {
   </header>
   )
 }
-export default NavBar
+export default NavBarPos

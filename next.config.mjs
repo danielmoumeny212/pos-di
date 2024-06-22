@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 // createJiti(fileURLToPath(import.meta.url))("./src/env");
 
 /** @type {import('next').NextConfig} */
+<<<<<<< HEAD
 
 const nextConfig = {
     // images:{
@@ -16,6 +17,18 @@ const nextConfig = {
     //         }
     //     ]
     // }
+=======
+const nextConfig = {
+    images:{
+        remotePatterns:[
+            {
+                protocol:'https',
+                hostname: 'images.unsplash.com',
+                pathname:'**'
+            }
+        ]
+    }
+>>>>>>> master
 };
 
 export default nextConfig;
