@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell, TableFooter } from "@/components/ui/table"
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
-import { BellIcon, CheckIcon, CreditCardIcon, PrinterIcon, SettingsIcon, TrashIcon, XIcon } from "lucide-react"
+import { BellIcon, CheckIcon, CreditCardIcon, PrinterIcon, SettingsIcon, TrashIcon, XIcon , Plus, Minus} from "lucide-react"
 import NavBarPos from "../(main)/(routes)/_components/navbarPos"
 const initialProducts = [
   { id: 1, name: "Cheeseburger", price: 2000, qty: 1 },
@@ -60,7 +60,7 @@ export default function Boutique() {
     <>
     <div className="flex flex-col h-screen">
       <NavBarPos />
-      <main className="flex-1 grid grid-cols-1 md:grid-cols-[1fr_440px] gap-6 p-6">
+      <main className="flex-1 grid grid-cols-1 md:grid-cols-[1fr_460px] gap-6 p-6">
         <div className="bg-white rounded-lg shadow-md p-6">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-2xl font-bold">Current Order</h2>
@@ -85,25 +85,25 @@ export default function Boutique() {
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {filteredProducts.map((product) => (
-          
-            
-            <button
-            key={product.id}
-           
-            className="flex items-center justify-between h-32 "
-               
-            onClick={() => addToCart(product)}>
+                    {filteredProducts.map((product) => (
               
-              <span>{product.name}:</span>
-              <span> {product.price} Fcfa</span>
-              <div>
-                {/* <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg" alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch." class="h-full w-[120px] h-full object-cover object-center"></img> */}
+                
+                <button
+                key={product.id}
+                className="flex items-center justify-between h-40 p-2 shadow-md bg-gray-100  rounded-lg hover:bg-orange-400 hover:text-white dark:hover:bg-gray-700"
+                // className="flex items-center justify-between h-40 p-2  border-red-500  rounded-lg bg-sky-500 hover:bg-sky-700"
+                  
+                onClick={() => addToCart(product)}>
+                  
+                  <span>{product.name}:</span>
+                  <span> {product.price} Fcfa</span>
+                  <div>
+                    <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg" alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch." className="h-full w-[120px] h-full object-cover object-center"></img>
 
-                </div>
-            </button>
-          
-        ))}
+                    </div>
+                </button>
+              
+            ))}
           </div>
        
         </div>
@@ -133,7 +133,7 @@ export default function Boutique() {
                       className="rounded-full"
                       onClick={() => removeFromCart(product.id)}
                     >
-                      <XIcon className="w-5 h-5" />
+                      <Minus className="w-5 h-5" />
                       
                       <span className="sr-only">Remove</span>
                     </Button>
@@ -143,7 +143,7 @@ export default function Boutique() {
                       className="rounded-full"
                       onClick={() => addToCart(product)}
                     >
-                      <XIcon className="w-5 h-5" />
+                      <Plus className="w-5 h-5" />
                       
                       <span className="sr-only">Add</span>
                     </Button>
