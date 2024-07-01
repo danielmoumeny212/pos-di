@@ -4,12 +4,12 @@ import { CopyIcon, DownloadIcon } from "lucide-react"
 
 export default function LinkQrCodePage() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100 dark:bg-gray-950">
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100 dark:bg-gray-950 text-center">
       <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 w-full max-w-md">
         <div className="flex flex-col items-center">
           <div className="relative w-full max-w-[280px] h-[560px] rounded-[36px] overflow-hidden border-[8px] border-black dark:border-white">
             <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-800">
-              <div className="text-gray-500 dark:text-gray-400 text-4xl">Menu Preview</div>
+              <div className="text-gray-500 dark:text-gray-400 text-4xl text-center">Menu Preview</div>
             </div>
             <img
               src="/placeholder.svg"

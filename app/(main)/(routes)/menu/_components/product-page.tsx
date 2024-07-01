@@ -8,14 +8,14 @@ import { CheckIcon, EyeIcon, PencilIcon, PlusIcon, PrinterIcon, TrashIcon, XIcon
 
 export default function ProductPageComponent() {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg ">
-      <div className="flex items-center justify-between border-b pb-4">
+    <div className="bg-white p-6 rounded-lg shadow-sm w-full ">
+      <div className="flex items-center justify-between border-b pb-4 w-full">
         <div className="flex items-center space-x-4">
           <Avatar className="w-12 h-12">
             <img src="/placeholder.svg" alt="Ola Click" />
           </Avatar>
           <div>
-            <h1 className="text-xl font-bold">Daniel Restaurant</h1>
+            <h1 className="text-xl font-extrabold text-orange-400">Daniel Restaurant</h1>
             <div className="flex items-center space-x-2 text-gray-500">
               <PencilIcon className="w-4 h-4" />
               <span className="text-sm">17/45</span>
@@ -51,7 +51,7 @@ export default function ProductPageComponent() {
             <Button variant="ghost" size="sm" className="hover:bg-gray-100 dark:hover:bg-gray-800">
               Move
             </Button>
-            <Button variant="secondary" size="sm" className="hover:bg-gray-100 dark:hover:bg-gray-800">
+            <Button variant="secondary" size="sm" className="bg-orange-400 hover:bg-gray-100 dark:hover:bg-gray-800">
               <PlusIcon className="w-4 h-4 text-white" />
               <span className="sr-only">Add Category</span>
             </Button>
@@ -62,7 +62,7 @@ export default function ProductPageComponent() {
               <div className="flex-1">
                 <div className="flex items-center justify-between">
                   <div className="space-y-1">
-                    <h2 className="text-lg font-semibold">Hamburger</h2>
+                    <h2 className="text-lg text-orange-400">Hamburger</h2>
                     <p className="text-sm text-gray-500">Hamburger with onion, tomato and lettuce</p>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -133,7 +133,7 @@ export default function ProductPageComponent() {
               <div className="flex-1">
                 <div className="flex items-center justify-between">
                   <div className="space-y-1">
-                    <h2 className="text-lg font-semibold">Pizza</h2>
+                    <h2 className="text-lg text-orange-400">Pizza</h2>
                     <p className="text-sm text-gray-500">Pepperoni pizza with extra cheese</p>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -188,7 +188,7 @@ export default function ProductPageComponent() {
                         <XIcon className="w-4 h-4 text-white" />
                         <span className="sr-only">Remove</span>
                       </Button>
-                      <Button variant="secondary" size="sm" className="hover:bg-gray-100 dark:hover:bg-gray-800">
+                      <Button variant="secondary" size="sm" className="bg-orange-400 hover:bg-gray-100 dark:hover:bg-gray-800">
                         <PlusIcon className="w-4 h-4 text-white" />
                         <span className="sr-only">Add</span>
                       </Button>
@@ -198,7 +198,7 @@ export default function ProductPageComponent() {
               </div>
             </div>
           </div>
-          <Button variant="secondary" size="sm" className="hover:bg-gray-100 dark:hover:bg-gray-800">
+          <Button variant="secondary" size="sm" className="bg-orange-400 hover:bg-gray-100 dark:hover:bg-gray-800">
             <PlusIcon className="w-4 h-4 text-white" />
             <span className="sr-only">Add Product</span>
           </Button>
@@ -236,7 +236,7 @@ export default function ProductPageComponent() {
           </div>
           <div className="flex items-center justify-between">
             <Input placeholder="Label (0)" className="flex-1" />
-            <Button variant="secondary" size="sm" className="hover:bg-gray-100 dark:hover:bg-gray-800">
+            <Button variant="secondary" size="sm" className="bg-orange-400 mx-2 hover:bg-gray-100 dark:hover:bg-gray-800">
               <PlusIcon className="w-4 h-4 text-white" />
               <span className="sr-only">Add</span>
             </Button>
