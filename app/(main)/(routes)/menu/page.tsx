@@ -13,19 +13,19 @@ export default function MenuPage() {
               className="grid gap-4 text-sm text-muted-foreground" x-chunk="dashboard-04-chunk-0"
             >
            
-      <Tabs
-       defaultValue="page" className="w-full">
-        <TabsList>
-          <TabsTrigger value="page">Ma page produit</TabsTrigger>
-          <TabsTrigger value="link">Generer QrCode </TabsTrigger>
-        </TabsList>
-        <TabsContent value="page">
-           <ProductPageComponent />
-        </TabsContent>
-        <TabsContent value="link">
-           <LinkQrCodePage />
-        </TabsContent>
-      </Tabs>
+            <Tabs
+            defaultValue="page" className="w-full ">
+              <TabsList>
+                <TabsTrigger value="page">Ma page produit</TabsTrigger>
+                <TabsTrigger value="link">Generer QrCode </TabsTrigger>
+              </TabsList>
+              <TabsContent value="page">
+                <ProductPageComponent />
+              </TabsContent>
+              <TabsContent value="link">
+                <LinkQrCodePage />
+              </TabsContent>
+            </Tabs>
   
               
     </nav>
